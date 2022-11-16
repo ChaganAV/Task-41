@@ -17,13 +17,12 @@ else
 // Функции
 int CountNumbersMoreZerro(string[] array)
 {
-    int count = 0;
-    int num = 0;
+    int count = 0; // количество числе больше 0
+    int num = 0; // сюда положим число из массива
     for (int i = 0; i < array.Length; i++)
     {
         if (Int32.TryParse(array[i], out num))
         {
-            //Console.WriteLine(num);
             if (num > 0)
                 count++;
         }
