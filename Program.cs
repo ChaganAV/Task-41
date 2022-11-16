@@ -1,4 +1,4 @@
-﻿int countNum = 0; // число чисел больше 0
+﻿int countNum = 0; // количество чисел больше 0
 Console.WriteLine("Введите несколько чисел через запятую: ");
 string? textInput = Console.ReadLine();
 if (textInput is null || textInput.Trim().Length == 0)
