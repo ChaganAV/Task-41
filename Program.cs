@@ -1,16 +1,14 @@
 ﻿int countNum = 0; // число чисел больше 0
 Console.WriteLine("Введите несколько чисел через запятую: ");
 string? textInput = Console.ReadLine();
-if (textInput is null)
+if (textInput is null || textInput.Trim().Length == 0)
 {
     Console.WriteLine("Необходимо ввести числа");
     return;
 }
 else
 {
-    string[] arraySimv = textInput.Split();
-    PrintString(textInput);
-
+    string[] arraySimv = textInput.Split(',');
     countNum = CountNumbersMoreZerro(arraySimv);
     Console.WriteLine($"{countNum} больше нуля");
 }
@@ -20,21 +18,15 @@ else
 int CountNumbersMoreZerro(string[] array)
 {
     int count = 0;
-    char simv;
+    int num = 0;
     for (int i = 0; i < array.Length; i++)
     {
-        if (Char.TryParse(array[i], out simv))
+        if (Int32.TryParse(array[i], out num))
         {
-            if (Char.IsDigit(simv))
-            {
-                if (simv > 0)
-                    count++;
-            }
+            //Console.WriteLine(num);
+            if (num > 0)
+                count++;
         }
     }
     return count;
-}
-void PrintString(string text)
-{
-    Console.WriteLine(text);
 }
